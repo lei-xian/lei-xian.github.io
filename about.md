@@ -15,3 +15,7 @@ I like traveling, programming, eating yummy food around the world, also I like s
 ### Contact me
 
 [xianleijy@gmail.com](mailto:xianleijy@gmail.com)
+
+### My CV
+<a href="/images/Lei_Xian_Resume.pdf">Download!</a>
+
