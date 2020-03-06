@@ -69,13 +69,13 @@ class Solution {
     }
 }
 ```
-**2.Generate Parentheses(leetcode 22)**
+**2. Generate Parentheses(leetcode 22)**
 * Simple dfs
 - Explaination: 
   1. dfs(0,0,""), dfs(1,0,"("), dfs(2,0,"((")...dfs(3,3,"((()))")
   2. dfs(1,0,"("), dfs(2,0,"((")
   3. dfs(1,0,"("), dfs(2,0,"(("), dfs 2,1,((); dfs 3,1,(()(; dfs 3,2,(()(); dfs 3,3,(()())
-  ...
+  ......
 
 Python code:
 ```javascript
