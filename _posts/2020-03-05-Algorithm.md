@@ -2,7 +2,7 @@
 * Used for finding all solutions by exploring all potential candidates
 * dfs
 
-**1. Letter Combinations of a Phone Number(leeocode 17)**
+**1. Letter Combinations of a Phone Number(leetcode 17)**
 
 * use a backtrack function backtrack(combination, next_digits)
   - base case: if there is no more next digits to check means the current combination is done
@@ -66,6 +66,45 @@ class Solution {
         if (digits.length()==0) return res;
         dfs(digits, 0, "");
         return res;
+    }
+}
+```
+**2.Generate Parentheses(leetcode 22)**
+* Simple dfs
+- Explaination: 
+  1. dfs(0,0,""), dfs(1,0,"("), dfs(2,0,"((")...dfs(3,3,"((()))")
+  2. dfs(1,0,"("), dfs(2,0,"((")
+  3. dfs(1,0,"("), dfs(2,0,"(("), dfs 2,1,((); dfs 3,1,(()(; dfs 3,2,(()(); dfs 3,3,(()())
+  ...
+
+Python code:
+```javascript
+class Solution(object):
+    def generateParenthesis(self, n):
+        res = []
+        def dfs(left,right,S):
+            if len(S)==2*n:
+                res.append(S)
+            if left<n:
+                dfs(left+1,right,S+'(')
+            if right < left:
+                dfs(left,right+1,S+')')
+        dfs(0,0,'')
+        return res
+```
+
+Java code:
+```javascript
+class Solution {
+    public List<String> generateParenthesis(int n) {
+        List<String> res = new ArrayList<String>();
+        dfs(0, 0, res, "",n);
+        return res;
+        }
+    public void dfs(int left, int right, List<String> res, String cur, int n){
+        if (cur.length()==2*n) res.add(cur);
+        if (left<n) dfs(left+1, right, res, cur+'(', n);
+        if (right<left) dfs(left, right+1, res, cur+')', n);   
     }
 }
 ```
