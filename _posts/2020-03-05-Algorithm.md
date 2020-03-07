@@ -121,7 +121,7 @@ class Solution:
                 if self.dfs(row,col,board,word):
                     return True
     def dfs(self,row,col,board,word):
-        # check base case
+        /* check base case */
         if len(word)==0:
             return True
         # check valid or not
