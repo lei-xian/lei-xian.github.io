@@ -110,6 +110,8 @@ class Solution {
 ```
 **2. Word Search(leetcode 79)**
 
+Classical dfs, visiting a 2D array
+
 Python code:
 ```javascript
 class Solution:
@@ -132,6 +134,39 @@ class Solution:
         if self.dfs(row,col-1,board,word[1:]) or self.dfs(row,col+1,board,word[1:]) or self.dfs(row+1,col,board,word[1:]) or self.dfs(row-1,col,board,word[1:]):
             return True
         board[row][col] = word[0]
+```
+
+Java code:
+```javascript
+class Solution {
+    public boolean dfs(int r, int c, String word, char[][] board, int index){
+        /* check base case */
+        if (index == word.length()) 
+            return true;
+        /* check is valid */
+        if (r<0 || r>=board.length || c<0 || c>=board[0].length || board[r][c]!=word.charAt(index)){
+            return false;
+        } 
+        /* mark visited */
+        board[r][c] = '*';
+        /* check neighborhood */
+        if (dfs(r+1, c, word, board, index+1) || dfs(r-1, c, word, board, index+1) || dfs(r, c+1, word, board, index+1) || dfs(r, c-1, word, board, index+1))
+            return true;
+        
+        board[r][c] = word.charAt(index);
+        return false;
+    }
+    public boolean exist(char[][] board, String word) {
+        if (board.length==0 || board[0].length==0) return false;
+        for (int r=0; r<board.length; r++){
+            for (int c=0; c<board[0].length; c++){
+                if (dfs(r,c,word,board,0)) 
+                    return true;
+            }
+        }
+    return false;
+    }
+}
 ```
 
 
