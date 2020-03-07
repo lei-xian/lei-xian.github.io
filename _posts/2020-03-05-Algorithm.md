@@ -108,3 +108,30 @@ class Solution {
     }
 }
 ```
+**2. Word Search(leetcode 79)**
+
+Python code:
+```javascript
+class Solution:
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        if not board or not board[0]:
+            return 
+        for row in range(len(board)):
+            for col in range(len(board[0])):
+                if self.dfs(row,col,board,word):
+                    return True
+    def dfs(self,row,col,board,word):
+        # check base case
+        if len(word)==0:
+            return True
+        # check valid or not
+        if row<0 or row>=len(board) or col<0 or col>=len(board[0]) or word[0]!=board[row][col]:
+            return False
+        # mark visited 
+        board[row][col] = '#'
+        if self.dfs(row,col-1,board,word[1:]) or self.dfs(row,col+1,board,word[1:]) or self.dfs(row+1,col,board,word[1:]) or self.dfs(row-1,col,board,word[1:]):
+            return True
+        board[row][col] = word[0]
+```
+
+
