@@ -121,13 +121,13 @@ class Solution:
                 if self.dfs(row,col,board,word):
                     return True
     def dfs(self,row,col,board,word):
-        /* check base case 
+        /* check base case */
         if len(word)==0:
             return True
-        /* check valid or not
+        /* check valid or not */
         if row<0 or row>=len(board) or col<0 or col>=len(board[0]) or word[0]!=board[row][col]:
             return False
-        /* mark visited 
+        /* mark visited */
         board[row][col] = '#'
         if self.dfs(row,col-1,board,word[1:]) or self.dfs(row,col+1,board,word[1:]) or self.dfs(row+1,col,board,word[1:]) or self.dfs(row-1,col,board,word[1:]):
             return True
