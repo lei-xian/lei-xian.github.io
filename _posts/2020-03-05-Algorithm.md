@@ -172,7 +172,9 @@ class Solution {
 
 **3. Permutations (leetcode 46)**
 ![alt text](https://github.com/lei-xian/lei-xian.github.io/blob/master/images/Permutations.png)
-
+<img src="https://github.com/lei-xian/lei-xian.github.io/blob/master/images/Permutations.png"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />
 
 Python code:
 ```javascript
