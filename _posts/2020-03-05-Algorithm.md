@@ -171,9 +171,8 @@ class Solution {
 ```
 
 **3. Permutations (leetcode 46)**
-![alt text](https://github.com/lei-xian/lei-xian.github.io/blob/master/images/Permutations.png)
+
 ![GitHub Logo](/images/Permutations.png)
-Format: ![Alt Text](url)
 
 Python code:
 ```javascript
