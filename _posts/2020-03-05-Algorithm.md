@@ -1,6 +1,7 @@
 ### Backtracking, practice with leetcode
-* Used for finding all solutions by exploring all potential candidates
-* dfs
+* Backtracking is an algorithm for finding all solutions by exploring all potential candidates. If the solution candidate turns to be not a solution (or at least not the last one), backtracking algorithm discards it by making some changes on the previous step, i.e. backtracks and then try again.
+* Usually with a inner function: backtrack(args).
+* dfs, visualize by tree is east to understand. 
 
 **1. Letter Combinations of a Phone Number(leetcode 17)**
 
@@ -165,6 +166,50 @@ class Solution {
             }
         }
     return false;
+    }
+}
+```
+
+**3. Permutations (leetcode 46)**
+![alt text](https://github.com/lei-xian/lei-xian.github.io/blob/master/images/Permutations.png)
+
+
+Python code:
+```javascript
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        res = []
+        def backtrack(first=0):
+            if first == len(nums):
+                res.append(nums[:])
+            else:
+                for i in range(first,len(nums)):
+                    nums[first], nums[i] = nums[i], nums[first]
+                    backtrack(first+1)
+                    nums[first], nums[i] = nums[i], nums[first]
+        backtrack()
+        return res
+```
+
+Java code:
+```javascript
+class Solution {
+    List<List<Integer>> res = new ArrayList();
+    public void backtrack(int n, int first, ArrayList<Integer> nums){
+        if (first==n) res.add(new ArrayList<Integer>(nums));
+        for(int i=first;i<n;i++){
+            Collections.swap(nums, first, i);
+            backtrack(n, first+1,nums);
+            Collections.swap(nums, first, i);
+        }
+    }
+    public List<List<Integer>> permute(int[] nums) {
+        int n=nums.length;
+        ArrayList<Integer> nums_lst = new ArrayList<Integer>();
+        for (int num : nums)
+          nums_lst.add(num);
+        backtrack(n,0,nums_lst);
+        return res;
     }
 }
 ```
