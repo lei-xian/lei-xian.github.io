@@ -261,4 +261,49 @@ class Solution {
     
 }
 ```
+**5. Combination Sum (Leetcode 39)**
+Python code:
+```javascript
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        candidates.sort()
+        res = []
+        self.helper(candidates, target, res, [], 0)
+        return res
+    def helper(self, candidates, target, res, cur_set, index):
+        if target == 0:
+            res.append(cur_set[:])
+        elif target>0:
+            for i in range(index, len(candidates)):
+                if target<candidates[i]: break
+                cur_set.append(candidates[i])
+                self.helper(candidates, target-candidates[i], res, cur_set, i)
+                cur_set.pop()
+        
+```
+
+Java code:
+```javascript
+class Solution {
+    public void helper(int[] candidates, int target, int index, List<Integer> cur_set, List<List<Integer>> res){
+        if (target==0) res.add(new ArrayList(cur_set));
+        else if (target>0){
+            for (int i=index; i<candidates.length; i++){
+                int num = candidates[i];
+                if (target<num) break;
+                cur_set.add(num);
+                helper(candidates, target-num, i, cur_set, res);
+                cur_set.remove(cur_set.size()-1);
+            }      
+        }  
+    }
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        List<Integer> cur_res = new ArrayList<Integer>();
+        helper(candidates, target, 0, cur_res, res);
+        return res;
+    }
+}
+```
 
