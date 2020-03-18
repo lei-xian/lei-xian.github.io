@@ -213,5 +213,50 @@ class Solution {
     }
 }
 ```
-
+**4. Restore IP Addresses (Leetcode 93)**
+* validate IP address, <= 255, if 3 digits, cannot start with 0.
+Python code:
+```javascript
+class Solution:
+    def restoreIpAddresses(self, s: str) -> List[str]:
+        res = []
+        self.helper(s,res,'',0)
+        return res
+    def helper(self, s, res, cur, count):
+        # base case
+        if not s and count==4:
+            res.append(cur[1:])
+        elif not s or count==4:
+            return
+        else:
+            self.helper(s[1:], res, cur+'.'+s[0], count+1)
+            if len(s)>1 and s[0]!='0':
+                self.helper(s[2:], res, cur+'.'+s[:2], count+1)
+                if s[0]!='0' and len(s)>2 and int(s[:3])<=255:
+                    self.helper(s[3:], res, cur+'.'+s[:3], count+1)       
+```
+Java code:
+```javascript
+class Solution {
+    public void helper(String s, List<String> res, int count, String cur){
+        if (count==4 && s.length()==0) res.add(cur.substring(1));
+        else if (count==4 || s.length()==0) return;
+        else{
+            helper(s.substring(1), res, count+1, cur+"."+s.substring(0,1));
+            if (s.length()>1 && s.charAt(0) != '0'){
+                helper(s.substring(2), res, count+1, cur+"."+s.substring(0,2));
+                if (s.length()>2 && s.charAt(0) != '0' && Integer.valueOf(s.substring(0,3)) <= 255){
+                    helper(s.substring(3), res, count+1, cur+"."+s.substring(0,3));
+                }
+            }
+        }
+    }
+    public List<String> restoreIpAddresses(String s) {
+        LinkedList<String> res = new LinkedList<String>();
+        helper(s, res, 0, "");
+        return res;
+    }
+    
+}
+```
 
