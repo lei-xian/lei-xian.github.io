@@ -307,4 +307,42 @@ class Solution {
     }
 }
 ```
+**6. Subsets (Leetcode 78)**
+* classical backtracking problem.
+
+Python code:
+```javascript
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        res = []
+        self.helper(res,[],nums,0)
+        return res
+    def helper(self, res, cur, nums, index):
+        res.append(cur[:])
+        for i in range(index,len(nums)):
+            cur.append(nums[i])
+            self.helper(res,cur,nums,i+1)
+            cur.pop()
+        
+```
+
+Java code:
+```javascript
+class Solution {
+    public void helper(int[] nums, int index, List<Integer> cur, List<List<Integer>> res){
+        res.add(new ArrayList(cur));
+        for (int i=index; i<nums.length;i++){
+            cur.add(nums[i]);
+            helper(nums,i+1,cur,res);
+            cur.remove(cur.size()-1);
+        }
+    }
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        List<Integer> cur = new ArrayList<Integer>();
+        helper(nums, 0, cur, res);
+        return res;
+    }
+}
+```
 
