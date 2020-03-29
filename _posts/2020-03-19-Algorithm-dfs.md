@@ -32,6 +32,7 @@ class Solution {
 **2. Critical Connections in a Network (Leetcode 1192)**
 * find the circle, remove the edges in the circle. 
 * use dfs find circle.
+
 Python code
 ```javascript
 import collections
