@@ -346,3 +346,39 @@ class Solution {
 }
 ```
 
+**7. Reconstruct Itinerary (Leetcode 332)**
+* Graph traversal, not a directed graph, since can find the circle in the graph.
+
+Python code:
+```javascript
+import collections
+class Solution:
+    def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+        def buildmap(tickets):
+            self.flighttickets = collections.defaultdict(list)
+            self.visit = {}
+            for _from, _to in tickets:
+                self.flighttickets[_from].append(_to)
+            for _from, _to in self.flighttickets.items():
+                self.flighttickets[_from].sort()
+                self.visit[_from] = [False] * len(_to)
+            self.res = []
+            
+        def dfs(_from, route):
+            if len(route)==len(tickets)+1:
+                self.res = route
+                return True
+            for i, nextstop in enumerate(self.flighttickets[_from]):
+                if not self.visit[_from][i]:
+                    self.visit[_from][i] = True
+                    flag = dfs(nextstop, route+[nextstop])
+                    self.visit[_from][i] = False
+                    if flag:
+                        return True
+            return False
+        buildmap(tickets)
+        dfs('JFK', ['JFK'])
+        return self.res
+
+```
+
