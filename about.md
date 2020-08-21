@@ -4,17 +4,9 @@ title: About
 permalink: /about/
 ---
 
-Hello, I am Lei Xian. Welcome to my webpage! 
+I am a software engineer live in Seattle now and want to travel around the world, learn different civilizations through my own experience. I enjoy exploring new place and new cuisine and create some dish to present my understanding of food and my cultural. 
 
-I got my bachelor's degree at Beijing Forestry University major in Electronic Commerce. After that, I continued my graduate study at the University of Georgia, double M.S. major in Computer Science and Applied Economics. Currently, I am waiting for my EAD card to start my first job at Nordstrom(super excited and connot wait)! 
-
-I like traveling, programming, eating yummy food around the world, also I like staying with my family. Hope I can keep writing this blog, maybe it will be my precious memory in the future. 
-
-
-
-### Contact me
-
-[xianleijy@gmail.com](mailto:xianleijy@gmail.com)
+Growup in China and moved to U.S. in 2017 for my graduate study. Spent 3 years in University of Georgia, the friends, professors, beautiful campus made my memory. Even now, the colorful fall Athens is still in my mind and the breeze is still ring in my ear. 
 
 ### My resume
 <a href="/images/Lei_Xian_Resume.pdf">Lei_Xian</a>
